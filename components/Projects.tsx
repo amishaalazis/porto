@@ -11,7 +11,7 @@ const projectData = [
     image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800&auto=format&fit=crop',
   },
   {
-    title: 'Platform Manajemen Beasiswa',
+    title: 'Platform Manajemen',
     description: 'Sistem backend dan dashboard admin untuk mengelola ribuan pendaftar beasiswa dengan alur seleksi multi-tahap.',
     tags: ['Laravel', 'PHP', 'MySQL'],
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
