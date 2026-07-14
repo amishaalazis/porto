@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 interface ProjectCardProps {
   title: string;
@@ -50,9 +51,10 @@ export default function ProjectCard({
             className="group/img relative aspect-[4/3] w-full overflow-hidden rounded-lg cursor-zoom-in border border-slate-200/50 shadow-sm transition-all hover:shadow-md"
           >
             <div className="absolute inset-0 bg-slate-900/5 group-hover/img:bg-transparent transition-colors z-10 pointer-events-none" />
-            <img
+            <Image
               src={image}
               alt={`${title} preview`}
+              fill
               className="object-cover w-full h-full transition-transform duration-500 group-hover/img:scale-110"
             />
           </motion.div>
@@ -144,11 +146,14 @@ export default function ProjectCard({
               className="relative max-w-5xl w-full max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={image}
-                alt={`Zoomed preview of ${title}`}
-                className="w-full h-full object-contain max-h-[90vh]"
-              />
+              <div className="relative w-full h-[70vh] sm:h-[85vh]">
+                <Image
+                  src={image}
+                  alt={`Zoomed preview of ${title}`}
+                  fill
+                  className="object-contain"
+                />
+              </div>
               <button
                 onClick={() => setIsOpen(false)}
                 className="absolute top-4 right-4 bg-black/40 hover:bg-[#FF6B4A] text-white p-2.5 rounded-full backdrop-blur-md transition-all duration-300"

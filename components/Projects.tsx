@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
+import SectionHeading from "./SectionHeading";
 
 const projectData = [
   {
@@ -45,7 +46,7 @@ const projectData = [
 
     image: "/projects/salesforce.webp",
 
-    teamSize: "5 Developers",
+    teamSize: "2 Developers",
     live: false,
     github: null,
     demo: null,
@@ -87,10 +88,55 @@ const projectData = [
 
     image: "/projects/casanela.webp",
 
-    teamSize: "4 Developers",
+    teamSize: "2 Developers",
     live: true,
     github: null,
     demo: "https://casanelavilla.com",
+  },
+  {
+    title: "Saung Diajar Community Platform",
+    category: "Community Education Platform",
+    role: "Full-Stack Developer",
+    client: "Saung Diajar",
+    period: "2025",
+
+    description:
+      "A community-driven educational platform developed to support literacy initiatives, educational activities, and knowledge sharing for local communities in Bandung.",
+
+    contributions: [
+      "Frontend and backend implementation",
+      "Authentication system implementation",
+      "Blog platform development",
+      "Content management integration",
+      "Deployment and maintenance",
+    ],
+
+    highlights: [
+      "Developed a public-facing platform for educational and community initiatives.",
+      "Implemented authentication and user management using Supabase Auth.",
+      "Built a blog and content management system to support educational content publishing.",
+      "Integrated Supabase as the backend service for authentication and database management.",
+      "Designed responsive interfaces optimized for accessibility across devices.",
+      "Successfully deployed and maintained the platform in a production environment.",
+    ],
+
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "Supabase Auth",
+      "PostgreSQL",
+      "Blog CMS",
+      "SSR",
+      "Tailwind CSS",
+    ],
+
+    image: "/projects/saung-diajar.webp",
+
+    teamSize: "1 Developer",
+    live: true,
+    github: null,
+    demo: "https://www.saungdiajar.site",
   },
 
   {
@@ -121,7 +167,7 @@ const projectData = [
 
     image: "/projects/rajaderek.webp",
 
-    teamSize: "3 Developers",
+    teamSize: "1 Developer",
     live: true,
     github: null,
     demo: "https://rajaderek.com",
@@ -155,7 +201,7 @@ const projectData = [
 
     image: "/projects/lcc.webp",
 
-    teamSize: "3 Developers",
+    teamSize: "1 Developers",
     live: true,
     github: null,
     demo: "https://lintascakracipta.com",
@@ -195,7 +241,7 @@ const projectData = [
 
     image: "/projects/archive.webp",
 
-    teamSize: "4 Developers",
+    teamSize: "3 Developers",
     live: false,
     github: null,
     demo: null,
@@ -225,17 +271,11 @@ const projectData = [
       "Implemented spatial analytics and business intelligence dashboards.",
     ],
 
-    tags: [
-      "Laravel",
-      "ArcGIS",
-      "PostgreSQL",
-      "GIS",
-      "Data Visualization",
-    ],
+    tags: ["Laravel", "ArcGIS", "PostgreSQL", "GIS", "Data Visualization"],
 
     image: "/projects/gis.webp",
 
-    teamSize: "5 Developers",
+    teamSize: "2 Developers",
     live: false,
     github: null,
     demo: null,
@@ -349,9 +389,14 @@ export default function Projects() {
       id="project"
       className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24"
     >
-      <h3 className="text-xl font-bold text-slate-900 dark:text-slate-200 mb-8 lg:hidden uppercase tracking-widest">
-        Projects
-      </h3>
+      <SectionHeading 
+        title="Featured Projects"
+        icon={
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+        }
+      />
 
       <motion.div
         initial="hidden"

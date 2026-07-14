@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import Image from 'next/image';
+import SectionHeading from './SectionHeading';
 
 const certifications = [
   {
@@ -19,7 +20,6 @@ const certifications = [
     issuer: "Institut Teknologi Bandung",
     issued: "Feb 2024",
     expires: "Feb 2027",
-    credentialId: "1623/IT.B05.6/DL.09/Srtfk/2025",
     image: "/assets/certifications/elpt-itb.webp",
     category: "Language Certification",
   },
@@ -67,9 +67,14 @@ export default function CertificatesGallery() {
 
   return (
     <section id="sertifikat" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24 relative">
-      <h3 className="text-xl font-bold text-slate-900 mb-8 lg:hidden uppercase tracking-widest">
-        Sertifikat
-      </h3>
+      <SectionHeading 
+        title="Certifications"
+        icon={
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+          </svg>
+        }
+      />
 
       <motion.div 
         initial="hidden"
@@ -120,11 +125,6 @@ export default function CertificatesGallery() {
                   </span>
                 )}
                 
-                {cert.credentialId && (
-                  <span className="text-xs text-slate-500 font-mono bg-slate-100 px-2 py-0.5 rounded w-fit border border-slate-200">
-                    ID: {cert.credentialId}
-                  </span>
-                )}
               </div>
               
               {cert.category && (

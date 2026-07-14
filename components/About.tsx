@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 
 export default function About() {
   const pVariants = {
@@ -11,8 +12,16 @@ export default function About() {
   return (
     <section
       id="tentang"
-      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24"
+      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24 relative z-40"
     >
+      <SectionHeading 
+        title="About"
+        icon={
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        }
+      />
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -20,10 +29,6 @@ export default function About() {
         transition={{ staggerChildren: 0.2 }}
         className="text-slate-600 leading-relaxed space-y-4"
       >
-        {/* <motion.p variants={pVariants}>
-          Frontend Engineer <strong>TypeScript</strong> with Full-Stack
-          Experience
-        </motion.p> */}
         <motion.p variants={pVariants}>
           I am a Frontend Engineer with Full-Stack experience specializing in
           internal business tools, CRM systems, and enterprise web applications.

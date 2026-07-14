@@ -26,8 +26,8 @@ export default function FloatingSocial() {
       initial={{ opacity: 0, y: -20, scale: 0.9 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ delay: 1, duration: 0.8, type: 'spring', stiffness: 50 }}
-      // Kelas fixed untuk mengunci posisi di pojok kanan atas layar
-      className="fixed top-6 right-6 lg:top-12 lg:right-12 z-[100] flex items-center gap-4"
+      // Kelas fixed untuk mengunci posisi di pojok kanan atas layar (hanya desktop)
+      className="hidden lg:flex fixed top-12 right-12 z-[100] items-center gap-4"
     >
       {socialLinks.map((social, index) => (
         <motion.li 
