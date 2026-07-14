@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import LeftSidebar from '@/components/LeftSidebar';
-import FloatingSocial from '@/components/FloatingSocial'; 
 import About from '@/components/About';
 import TechStack from '@/components/TechStack';
 import Projects from '@/components/Projects';
@@ -12,6 +11,8 @@ import Experience from '@/components/Experience';
 import Education from '@/components/Education';
 import Contact from '@/components/Contact';
 import { IntroTransition } from '@/components/Intro';
+import { LanguageProvider } from '@/context/LanguageContext';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -25,9 +26,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#FFF9F5] text-slate-800 selection:bg-[#FF6B4A]/20 selection:text-[#FF6B4A] font-sans">
-      
-      <FloatingSocial />
+    <LanguageProvider>
+      <div className="relative min-h-screen bg-[#FFF9F5] text-slate-800 selection:bg-[#FF6B4A]/20 selection:text-[#FF6B4A] font-sans">
+        <div className="fixed top-4 right-4 md:top-6 md:right-6 lg:top-8 lg:right-8 z-[110]">
+          <LanguageSwitcher />
+        </div>
 
       <div
         className="pointer-events-none fixed inset-0 z-30 transition duration-300"
@@ -54,7 +57,8 @@ export default function Home() {
           </main>
           
         </div>
+        </div>
       </div>
-    </div>
+    </LanguageProvider>
   );
 }

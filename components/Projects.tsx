@@ -3,17 +3,18 @@
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import SectionHeading from "./SectionHeading";
+import { useLanguage } from "../context/LanguageContext";
 
 const projectData = [
   {
     title: "Internal Salesforce Platform",
-    category: "Enterprise Internal Tool",
-    role: "Frontend Engineer",
+    category: { en: "Enterprise Internal Tool", id: "Alat Internal Perusahaan" },
+    role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     client: "Internal Business Operations",
-    period: "2025 - Present",
+    period: { en: "2025 - Present", id: "2025 - Sekarang" },
 
     description:
-      "An internal CRM and sales management platform designed to centralize business operations, sales activities, customer management, and revenue reporting across multiple teams.",
+      { en: "An internal CRM and sales management platform designed to centralize business operations, sales activities, customer management, and revenue reporting across multiple teams.", id: "Platform CRM dan manajemen penjualan internal yang dirancang untuk memusatkan operasi bisnis, aktivitas penjualan, manajemen pelanggan, dan pelaporan pendapatan di berbagai tim." },
 
     contributions: [
       "Frontend architecture design and implementation",
@@ -44,9 +45,9 @@ const projectData = [
       "SSR",
     ],
 
-    image: "/projects/salesforce.webp",
+    image: "/porto-sales.png",
 
-    teamSize: "2 Developers",
+    teamSize: { en: "2 Developers", id: "2 Developer" },
     live: false,
     github: null,
     demo: null,
@@ -54,13 +55,13 @@ const projectData = [
 
   {
     title: "Casanela Villa Booking Platform",
-    category: "Booking Platform",
-    role: "Frontend Engineer",
+    category: { en: "Booking Platform", id: "Platform Pemesanan" },
+    role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     client: "Casanela Villa",
-    period: "2025 - Present",
+    period: { en: "2025 - Present", id: "2025 - Sekarang" },
 
     description:
-      "A booking and reservation platform developed to simplify villa reservations, add-on services, and administrative workflows.",
+      { en: "A booking and reservation platform developed to simplify villa reservations, add-on services, and administrative workflows.", id: "Platform pemesanan dan reservasi yang dikembangkan untuk menyederhanakan pemesanan vila, layanan tambahan, dan alur kerja administratif." },
 
     contributions: [
       "Booking flow implementation",
@@ -86,22 +87,22 @@ const projectData = [
       "Booking System",
     ],
 
-    image: "/projects/casanela.webp",
+    image: "/porto-casanela.png",
 
-    teamSize: "2 Developers",
+    teamSize: { en: "2 Developers", id: "2 Developer" },
     live: true,
     github: null,
     demo: "https://casanelavilla.com",
   },
   {
     title: "Saung Diajar Community Platform",
-    category: "Community Education Platform",
-    role: "Full-Stack Developer",
+    category: { en: "Community Education Platform", id: "Platform Edukasi Komunitas" },
+    role: { en: "Full-Stack Developer", id: "Full-Stack Developer" },
     client: "Saung Diajar",
-    period: "2025",
+    period: { en: "2025", id: "2025" },
 
     description:
-      "A community-driven educational platform developed to support literacy initiatives, educational activities, and knowledge sharing for local communities in Bandung.",
+      { en: "A community-driven educational platform developed to support literacy initiatives, educational activities, and knowledge sharing for local communities in Bandung.", id: "Platform pendidikan berbasis komunitas yang dikembangkan untuk mendukung inisiatif literasi, kegiatan pendidikan, dan berbagi pengetahuan untuk komunitas lokal di Bandung." },
 
     contributions: [
       "Frontend and backend implementation",
@@ -131,9 +132,9 @@ const projectData = [
       "Tailwind CSS",
     ],
 
-    image: "/projects/saung-diajar.webp",
+    image: "/porto-saung.webp",
 
-    teamSize: "1 Developer",
+    teamSize: { en: "1 Developer", id: "1 Developer" },
     live: true,
     github: null,
     demo: "https://www.saungdiajar.site",
@@ -141,13 +142,13 @@ const projectData = [
 
   {
     title: "Rajaderek Corporate Website",
-    category: "Corporate Website",
-    role: "Frontend Engineer",
+    category: { en: "Corporate Website", id: "Situs Perusahaan" },
+    role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     client: "Rajaderek",
-    period: "2025",
+    period: { en: "2025", id: "2025" },
 
     description:
-      "A corporate website and blog platform developed to improve digital presence and support content-driven marketing strategies.",
+      { en: "A corporate website and blog platform developed to improve digital presence and support content-driven marketing strategies.", id: "Situs web perusahaan dan platform blog yang dikembangkan untuk meningkatkan kehadiran digital dan mendukung strategi pemasaran berbasis konten." },
 
     contributions: [
       "Frontend development",
@@ -165,9 +166,9 @@ const projectData = [
 
     tags: ["Next.js", "TypeScript", "Neon", "SSR", "SEO"],
 
-    image: "/projects/rajaderek.webp",
+    image: "/porto-rd.webp",
 
-    teamSize: "1 Developer",
+    teamSize: { en: "1 Developer", id: "1 Developer" },
     live: true,
     github: null,
     demo: "https://rajaderek.com",
@@ -175,13 +176,13 @@ const projectData = [
 
   {
     title: "Lintas Cakra Cipta Corporate Website",
-    category: "Corporate Website",
-    role: "Frontend Engineer",
+    category: { en: "Corporate Website", id: "Situs Perusahaan" },
+    role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     client: "Lintas Cakra Cipta",
-    period: "2025",
+    period: { en: "2025", id: "2025" },
 
     description:
-      "A corporate profile and content platform developed with a strong focus on maintainability, scalability, and search engine visibility.",
+      { en: "A corporate profile and content platform developed with a strong focus on maintainability, scalability, and search engine visibility.", id: "Profil perusahaan dan platform konten yang dikembangkan dengan fokus kuat pada kemudahan pemeliharaan, skalabilitas, dan visibilitas mesin pencari." },
 
     contributions: [
       "Frontend development",
@@ -199,9 +200,9 @@ const projectData = [
 
     tags: ["Next.js", "TypeScript", "Neon", "SSR", "SEO"],
 
-    image: "/projects/lcc.webp",
+    image: "/porto-lcc.webp",
 
-    teamSize: "1 Developers",
+    teamSize: { en: "1 Developers", id: "1 Developer" },
     live: true,
     github: null,
     demo: "https://lintascakracipta.com",
@@ -209,13 +210,13 @@ const projectData = [
 
   {
     title: "Enterprise Digital Archive Platform",
-    category: "Enterprise Application",
-    role: "Full-Stack Developer",
+    category: { en: "Enterprise Application", id: "Aplikasi Enterprise" },
+    role: { en: "Full-Stack Developer", id: "Full-Stack Developer" },
     client: "Enterprise Organization",
-    period: "2024 - 2025",
+    period: { en: "2024 - 2025", id: "2024 - 2025" },
 
     description:
-      "An enterprise digital archive platform developed to support historical record management, document retrieval, certification tracking, and personnel information management.",
+      { en: "An enterprise digital archive platform developed to support historical record management, document retrieval, certification tracking, and personnel information management.", id: "Platform arsip digital perusahaan yang dikembangkan untuk mendukung manajemen rekaman sejarah, pengambilan dokumen, pelacakan sertifikasi, dan manajemen informasi personel." },
 
     contributions: [
       "Backend development",
@@ -239,9 +240,9 @@ const projectData = [
       "Digital Archive",
     ],
 
-    image: "/projects/archive.webp",
+    image: "/porto-sisfo.png",
 
-    teamSize: "3 Developers",
+    teamSize: { en: "3 Developers", id: "3 Developer" },
     live: false,
     github: null,
     demo: null,
@@ -249,13 +250,13 @@ const projectData = [
 
   {
     title: "Geospatial Intelligence Dashboard",
-    category: "GIS Application",
-    role: "Full-Stack Developer",
+    category: { en: "GIS Application", id: "Aplikasi GIS" },
+    role: { en: "Full-Stack Developer", id: "Full-Stack Developer" },
     client: "Enterprise Organization",
-    period: "2024 - 2025",
+    period: { en: "2024 - 2025", id: "2024 - 2025" },
 
     description:
-      "A geospatial analytics platform developed to support operational monitoring through maps, weather information, heatmaps, and spatial visualization.",
+      { en: "A geospatial analytics platform developed to support operational monitoring through maps, weather information, heatmaps, and spatial visualization.", id: "Platform analitik geospasial yang dikembangkan untuk mendukung pemantauan operasional melalui peta, informasi cuaca, peta panas (heatmap), dan visualisasi spasial." },
 
     contributions: [
       "GIS feature development",
@@ -273,9 +274,9 @@ const projectData = [
 
     tags: ["Laravel", "ArcGIS", "PostgreSQL", "GIS", "Data Visualization"],
 
-    image: "/projects/gis.webp",
+    image: "/porto-bms.png",
 
-    teamSize: "2 Developers",
+    teamSize: { en: "2 Developers", id: "2 Developer" },
     live: false,
     github: null,
     demo: null,
@@ -283,13 +284,13 @@ const projectData = [
 
   {
     title: "Spatial Planning Geographic Information System",
-    category: "GIS Application",
-    role: "Freelance Web Developer",
+    category: { en: "GIS Application", id: "Aplikasi GIS" },
+    role: { en: "Freelance Web Developer", id: "Freelance Web Developer" },
     client: "Private Client",
-    period: "2024",
+    period: { en: "2024", id: "2024" },
 
     description:
-      "An interactive GIS platform integrating ArcGIS services to visualize zoning information and spatial planning data.",
+      { en: "An interactive GIS platform integrating ArcGIS services to visualize zoning information and spatial planning data.", id: "Platform GIS interaktif yang mengintegrasikan layanan ArcGIS untuk memvisualisasikan informasi zonasi dan data tata ruang." },
 
     contributions: [
       "Map integration",
@@ -308,7 +309,7 @@ const projectData = [
 
     image: "/projects/spatial-planning.webp",
 
-    teamSize: "2 Developers",
+    teamSize: { en: "2 Developers", id: "2 Developer" },
     live: false,
     github: null,
     demo: null,
@@ -316,13 +317,13 @@ const projectData = [
 
   {
     title: "Gunung Padang Cultural Heritage Website",
-    category: "Public Information Website",
-    role: "Freelance Web Developer",
+    category: { en: "Public Information Website", id: "Situs Informasi Publik" },
+    role: { en: "Freelance Web Developer", id: "Freelance Web Developer" },
     client: "Gunung Padang Tourism Initiative",
-    period: "2023",
+    period: { en: "2023", id: "2023" },
 
     description:
-      "A public-facing website developed to promote historical information, tourism activities, and educational content related to the Gunung Padang archaeological site.",
+      { en: "A public-facing website developed to promote historical information, tourism activities, and educational content related to the Gunung Padang archaeological site.", id: "Situs web publik yang dikembangkan untuk mempromosikan informasi sejarah, kegiatan pariwisata, dan konten pendidikan terkait situs arkeologi Gunung Padang." },
 
     contributions: [
       "Frontend development",
@@ -341,7 +342,7 @@ const projectData = [
 
     image: "/projects/gunung-padang.webp",
 
-    teamSize: "1 Developer",
+    teamSize: { en: "1 Developer", id: "1 Developer" },
     status: "Archived",
     live: false,
     github: null,
@@ -350,13 +351,13 @@ const projectData = [
 
   {
     title: "Lamajang Village Information Portal",
-    category: "Public Service Platform",
-    role: "Freelance Web Developer",
+    category: { en: "Public Service Platform", id: "Platform Layanan Publik" },
+    role: { en: "Freelance Web Developer", id: "Freelance Web Developer" },
     client: "Lamajang Village Administration",
-    period: "2023",
+    period: { en: "2023", id: "2023" },
 
     description:
-      "A village information portal developed to provide public information, announcements, local news, and community activities.",
+      { en: "A village information portal developed to provide public information, announcements, local news, and community activities.", id: "Portal informasi desa yang dikembangkan untuk menyediakan informasi publik, pengumuman, berita lokal, dan kegiatan masyarakat." },
 
     contributions: [
       "Frontend development",
@@ -375,7 +376,7 @@ const projectData = [
 
     image: "/projects/lamajang.webp",
 
-    teamSize: "1 Developer",
+    teamSize: { en: "1 Developer", id: "1 Developer" },
     status: "Archived",
     live: false,
     github: null,
@@ -384,13 +385,14 @@ const projectData = [
 ];
 
 export default function Projects() {
+  const { language, dict } = useLanguage();
   return (
     <section
       id="project"
       className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24"
     >
       <SectionHeading 
-        title="Featured Projects"
+        title={dict.projects.title}
         icon={
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -409,10 +411,10 @@ export default function Projects() {
           <ProjectCard
             key={index}
             title={project.title}
-            role={project.role}
+            role={project.role?.[language]}
             company={project.client}
-            year={project.period}
-            description={project.description}
+            year={project.period?.[language]}
+            description={project.description[language]}
             highlights={project.highlights}
             tags={project.tags}
             image={project.image}

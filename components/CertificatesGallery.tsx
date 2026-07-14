@@ -3,53 +3,85 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { useLanguage } from '../context/LanguageContext';
 import SectionHeading from './SectionHeading';
 
 const certifications = [
   {
-    title: "TOEFL ITP",
+    title: {
+      en: "TOEFL ITP",
+      id: "TOEFL ITP",
+    },
     issuer: "ETS",
     issued: "Jul 2025",
     expires: "Jul 2027",
     image: "/assets/certifications/toefl-itp.webp",
-    category: "Language Certification",
+    category: {
+      en: "Language Certification",
+      id: "Sertifikasi Bahasa",
+    },
   },
 
   {
-    title: "English Language Proficiency Test",
+    title: {
+      en: "English Language Proficiency Test",
+      id: "English Language Proficiency Test",
+    },
     issuer: "Institut Teknologi Bandung",
     issued: "Feb 2024",
     expires: "Feb 2027",
     image: "/assets/certifications/elpt-itb.webp",
-    category: "Language Certification",
+    category: {
+      en: "Language Certification",
+      id: "Sertifikasi Bahasa",
+    },
   },
 
   {
-    title: "TPA OTO Bappenas",
+    title: {
+      en: "TPA OTO Bappenas",
+      id: "TPA OTO Bappenas",
+    },
     issuer: "Bappenas",
     issued: "2024",
     image: "/assets/certifications/tpa-bappenas.webp",
-    category: "Academic Assessment",
+    category: {
+      en: "Academic Assessment",
+      id: "Penilaian Akademik",
+    },
   },
 
   {
-    title: "2nd Place Innovation Idea Competition",
+    title: {
+      en: "2nd Place Innovation Idea Competition",
+      id: "Juara 2 Kompetisi Ide Inovasi",
+    },
     issuer: "PT Lintas Cakra Cipta",
     issued: "2025",
-    image: "/assets/certifications/innovation-award.webp",
-    category: "Award",
+    image: "/ser-ju2.webp",
+    category: {
+      en: "Award",
+      id: "Penghargaan",
+    },
   },
 
   {
-    title: "University Outstanding Student Representative",
+    title: {
+      en: "University Outstanding Student Representative",
+      id: "Perwakilan Mahasiswa Berprestasi Universitas",
+    },
     issuer: "Faculty of Engineering, Pasundan University",
     issued: "2023",
     image: "/assets/certifications/outstanding-student.webp",
-    category: "Academic Achievement",
+    category: {
+      en: "Academic Achievement",
+      id: "Prestasi Akademik",
+    },
   },
 ];
 
 export default function CertificatesGallery() {
+  const { language, dict } = useLanguage();
   // State untuk menyimpan URL gambar yang sedang di-zoom
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -68,7 +100,7 @@ export default function CertificatesGallery() {
   return (
     <section id="sertifikat" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24 relative">
       <SectionHeading 
-        title="Certifications"
+        title={dict.certifications.title}
         icon={
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -100,7 +132,7 @@ export default function CertificatesGallery() {
             <div className="w-full sm:w-1/3 aspect-[4/3] overflow-hidden rounded-xl bg-slate-200 relative shrink-0">
               <Image 
                 src={cert.image} 
-                alt={cert.title} 
+                alt={cert.title[language]} 
                 width={400} 
                 height={300}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
@@ -112,26 +144,31 @@ export default function CertificatesGallery() {
             <div className="w-full sm:w-2/3 flex flex-col justify-center space-y-2 z-20 relative pointer-events-none">
               <div className="flex items-start justify-between gap-2">
                 <h4 className="font-semibold text-lg leading-tight text-slate-900 group-hover:text-[#FF6B4A] transition-colors">
-                  {cert.title}
+                  {cert.title[language]}
                 </h4>
+                {/* Tanda panah diagonal kecil muncul saat hover, indikator bisa di-klik */}
+                <motion.div 
+                  initial={{ opacity: 0, x: -5, y: 5 }}
+                  whileHover={{ opacity: 1, x: 0, y: 0 }}
+                  className="text-[#FF6B4A] hidden sm:block"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </motion.div>
               </div>
-              
-              <div className="flex flex-col gap-1.5 text-sm text-slate-600">
-                <span className="font-medium text-slate-700">{cert.issuer}</span>
-                
-                {cert.issued && (
-                  <span className="text-[13px] text-slate-500">
-                    {cert.issued} {cert.expires ? `• Expires: ${cert.expires}` : ""}
-                  </span>
-                )}
-                
+
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium text-slate-500">
+                <span className="text-slate-700">{cert.issuer}</span>
+                <span className="hidden sm:inline-block text-slate-300">•</span>
+                <span className="text-[#FF6B4A]/80 tracking-wide">
+                  {cert.issued} {cert.expires ? `- ${cert.expires}` : ''}
+                </span>
               </div>
               
               {cert.category && (
-                <div className="pt-1.5">
-                  <span className="inline-flex items-center rounded-full bg-[#FF6B4A]/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#FF6B4A]">
-                    {cert.category}
-                  </span>
+                <div className="mt-2 inline-flex self-start items-center rounded-full bg-[#FF6B4A]/10 px-3 py-1 text-xs font-semibold leading-5 text-[#FF6B4A]">
+                  {cert.category[language]}
                 </div>
               )}
             </div>

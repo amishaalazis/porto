@@ -1,11 +1,15 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 import SectionHeading from "./SectionHeading";
 
 const techStack = [
   {
-    category: "Frontend",
+    category: {
+      en: "Frontend",
+      id: "Frontend",
+    },
     skills: [
       "TypeScript",
       "JavaScript",
@@ -27,7 +31,10 @@ const techStack = [
   },
 
   {
-    category: "Backend",
+    category: {
+      en: "Backend",
+      id: "Backend",
+    },
     skills: [
       "Laravel",
       "PHP",
@@ -42,12 +49,18 @@ const techStack = [
   },
 
   {
-    category: "Database & Infrastructure",
+    category: {
+      en: "Database & Infrastructure",
+      id: "Database & Infrastruktur",
+    },
     skills: ["PostgreSQL", "MySQL", "Supabase", "Neon", "Vercel"],
   },
 
   {
-    category: "GIS & Analytics",
+    category: {
+      en: "GIS & Analytics",
+      id: "GIS & Analitik",
+    },
     skills: [
       "ArcGIS",
       "Geospatial Visualization",
@@ -57,12 +70,16 @@ const techStack = [
   },
 
   {
-    category: "Tools & Collaboration",
+    category: {
+      en: "Tools & Collaboration",
+      id: "Alat & Kolaborasi",
+    },
     skills: ["Git", "GitHub", "Apidog", "Figma", "Discord"],
   },
 ];
 
 export default function TechStack() {
+  const { language, dict } = useLanguage();
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -86,7 +103,7 @@ export default function TechStack() {
       className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24"
     >
       <SectionHeading 
-        title="Tech Stack"
+        title={dict.techStack.title}
         icon={
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
@@ -108,9 +125,10 @@ export default function TechStack() {
             whileHover={{ scale: 1.02 }}
             className="group relative p-5 rounded-2xl transition-all duration-300 hover:bg-[#FF6B4A]/5 hover:shadow-[0_8px_30px_rgb(255,107,74,0.12)]"
           >
-            <h4 className="font-bold text-slate-900 group-hover:text-[#FF6B4A] transition-colors mb-4 text-base md:text-lg">
-              {stack.category}
-            </h4>
+            <h3 className="mb-4 font-bold text-lg text-slate-900 group-hover:text-[#FF6B4A] transition-colors flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B4A]/60"></span>
+              {stack.category[language]}
+            </h3>
             <ul className="flex flex-wrap gap-2">
               {stack.skills.map((skill, idx) => (
                 <motion.li
