@@ -10,6 +10,7 @@ import CertificatesGallery from '@/components/CertificatesGallery';
 import ActivitiesShowcase from '@/components/ActivitiesShowcase';
 import Experience from '@/components/Experience';
 import Education from '@/components/Education';
+import Contact from '@/components/Contact';
 import { IntroTransition } from '@/components/Intro';
 
 export default function Home() {
@@ -49,6 +50,7 @@ export default function Home() {
             <Education />
             <CertificatesGallery />
             <ActivitiesShowcase />
+            <Contact />
           </main>
           
         </div>

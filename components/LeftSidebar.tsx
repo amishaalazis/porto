@@ -99,6 +99,7 @@ export default function LeftSidebar() {
     { name: "Education", id: "pendidikan" },
     { name: "Certificate", id: "sertifikat" },
     { name: "Activity", id: "kegiatan" },
+    { name: "Contact", id: "kontak" },
   ];
 
   return (
@@ -107,13 +108,13 @@ export default function LeftSidebar() {
       transformTemplate={({ rotateX, rotateY, z }) =>
         `perspective(1000px) rotateX(${rotateX}) rotateY(${rotateY}) translateZ(${z}px)`
       }
-      className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 relative z-50 origin-center"
+      className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-20 relative z-50 origin-center"
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="origin-center"
+        className="origin-center lg:overflow-y-auto lg:scrollbar-hide lg:pb-10"
       >
         <motion.h1
           variants={nameVariants}
@@ -147,14 +148,14 @@ export default function LeftSidebar() {
           while pursuing a Master&apos;s degree in Computer Science.
         </motion.p>
 
-        <nav className="nav hidden lg:block mt-16">
-          <ul className="w-max space-y-4">
+        <nav className="nav hidden lg:block mt-10">
+          <ul className="w-max space-y-1.5">
             {menuItems.map((item, index) => {
               const isActive = activeSection === item.id;
               return (
                 <motion.li variants={itemVariants} key={index}>
                   <a
-                    className="group flex items-center py-3"
+                    className="group flex items-center py-2"
                     href={`#${item.id}`}
                   >
                     <span

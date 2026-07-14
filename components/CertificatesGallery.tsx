@@ -90,9 +90,9 @@ export default function CertificatesGallery() {
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 12 }}
             onClick={() => setSelectedImage(cert.image)}
-            className="group relative overflow-hidden rounded-2xl bg-[#FF6B4A]/5 p-4 shadow-sm transition-shadow duration-300 hover:shadow-lg origin-bottom z-10 cursor-zoom-in"
+            className="group relative overflow-hidden rounded-2xl bg-[#FF6B4A]/5 p-4 sm:p-5 flex flex-col sm:flex-row gap-4 sm:gap-6 shadow-sm transition-shadow duration-300 hover:shadow-lg origin-bottom z-10 cursor-zoom-in"
           >
-            <div className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-200 relative">
+            <div className="w-full sm:w-1/3 aspect-[4/3] overflow-hidden rounded-xl bg-slate-200 relative shrink-0">
               <Image 
                 src={cert.image} 
                 alt={cert.title} 
@@ -104,7 +104,7 @@ export default function CertificatesGallery() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#FF6B4A]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </div>
             
-            <div className="mt-4 space-y-2 z-20 relative pointer-events-none">
+            <div className="w-full sm:w-2/3 flex flex-col justify-center space-y-2 z-20 relative pointer-events-none">
               <div className="flex items-start justify-between gap-2">
                 <h4 className="font-semibold text-lg leading-tight text-slate-900 group-hover:text-[#FF6B4A] transition-colors">
                   {cert.title}
