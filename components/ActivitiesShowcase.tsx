@@ -31,7 +31,7 @@ export default function ActivitiesShowcase() {
   };
 
   return (
-    <section id="kegiatan" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24 relative z-40">
+    <section id="kegiatan" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24 relative z-40">
       <h3 className="text-xl font-bold text-slate-900 mb-8 lg:hidden uppercase tracking-widest">
         Kegiatan
       </h3>

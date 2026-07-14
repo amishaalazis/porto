@@ -1,43 +1,125 @@
-'use client';
+"use client";
 
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants } from "framer-motion";
 
 const experienceData = [
   {
-    title: 'Frontend Developer',
-    company: 'PT Lintas Cakra Cipta',
-    date: 'Oct 2025 — Present',
-    description: 'A Frontend Developer focused on developing responsive, scalable, and secure user interfaces (UI) using the TypeScript and React/Next.js ecosystem. Responsible for the end-to-end frontend development cycle, from designing visual data architectures and building internal design systems to implementing complex business logic in enterprise-level applications and public platforms.',
-    tags: ['Typescript', 'Web Developer', 'Frontend Developer'],
+    title: "Frontend Engineer",
+    company: "PT Lintas Cakra Cipta",
+    date: "Oct 2025 — Present",
+    description: [
+      "Develop and maintain business-critical web applications using Next.js and TypeScript, ranging from corporate websites and booking platforms to enterprise CRM solutions.",
+      "Led frontend implementation of an internal Salesforce platform featuring KPI tracking, sales pipeline management, quotation and offering approvals, customer management, transaction reporting, and revenue analytics.",
+      "Built multi-level approval workflows, role-based access control using Better Auth, dashboard visualizations, geolocation-based field activity tracking, image uploads, and Excel export functionality.",
+      "Designed reusable UI systems including layouts, typography, cards, buttons, and utility components to improve consistency and scalability across multiple products.",
+      "Focused on Server Actions, SSR, performance optimization, responsive design, and maintainable frontend architecture.",
+    ],
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Better Auth",
+      "Server Actions",
+      "SSR",
+      "RBAC",
+    ],
   },
   {
-    title: 'Full-Stack Web Developer',
-    company: 'PT Dwi Purwa Teknologi',
-    date: 'March 2024 - Sept 2025',
-    description: 'Designed, developed, and maintained resilient back-end systems using the Laravel framework, optimizing direct connections with PostgreSQL for data-intensive applications, Managed and optimized PostgreSQL database architecture (schemas, queries, indexing) to ensure high performance and stability for applications handling high-volume data, GIS Application Development: Spearheaded the development of specialized applications, including a Defense Operations System and Signal Coverage Web App, utilizing ArcGIS for crucial geospatial data visualization and analysis.',
-    tags: ['Laravel', 'PostgreSQL', 'ArcGIS', 'PHP'],
+    title: "Full-Stack Developer",
+    company: "PT Dwi Purwa Teknologi",
+    date: "Mar 2024 — Sept 2025",
+    description: [
+      "Developed enterprise applications and government systems using Laravel and PostgreSQL, focusing on data-intensive business processes and long-term operational systems.",
+      "Contributed to a military GIS platform utilizing ArcGIS libraries for geospatial visualization, operational mapping, and strategic information display.",
+      "Built command center dashboard modules displaying weather information, business intelligence metrics, heatmaps, and organizational insights.",
+      "Developed a digital archive system for military psychological assessments, psychograms, achievements, certificates, and personnel records dating back to the 1980s.",
+      "Participated in database design, business requirement analysis, and technical documentation for enterprise software projects.",
+    ],
+    tags: [
+      "Laravel",
+      "PHP",
+      "PostgreSQL",
+      "ArcGIS",
+      "GIS",
+      "Enterprise Application",
+      "Government Project",
+    ],
   },
   {
-    title: 'Freelance Web Developer',
-    company: 'Remote',
-    date: '2023 — Present',
-    description: 'Worked on various web development projects from clients, including geographic information systems that visualize data.',
-    tags: ['Laravel', 'JavaScript', 'PHP', 'Data Visualization'],
+    title: "Freelance Web Developer",
+    company: "Remote",
+    date: "2023 — Present",
+    description: [
+      "Delivered custom web solutions for clients including corporate websites, booking systems, dashboards, and geospatial applications.",
+      "Worked closely with clients throughout the development lifecycle from requirement gathering and UI implementation to deployment and maintenance.",
+      "Focused on creating responsive interfaces, improving SEO performance, and building maintainable frontend architectures.",
+    ],
+    tags: [
+      "Next.js",
+      "Laravel",
+      "TypeScript",
+      "JavaScript",
+      "PostgreSQL",
+      "SEO",
+    ],
   },
   {
-    title: 'Coordinator of game programming course lab assistants',
-    company: 'Pasundan University',
-    date: 'Feb 2023 — May 2023',
-    description: 'Led and coordinated a team of 10 lab assistants for the Game Programming course, ensuring smooth laboratory operations and providing technical guidance to students on game development tools and programming concepts.',
-    tags: ['Leadership', 'Team Management', 'Technical Support'],
+  title: 'Technical Content Creator',
+  company: '@cewekcoding',
+  date: 'Jan 2026 — Present',
+  description: [
+    "Founded and grew a programming-focused educational platform with over 2,800 followers by creating content around software development, developer culture, and engineering best practices.",
+    "Produced educational content covering web development, JavaScript ecosystems, career growth, and real-world software engineering experiences through short-form media.",
+    "Focused on simplifying complex technical concepts into accessible and engaging content for students, junior developers, and aspiring engineers.",
+  ],
+  tags: [
+    "Technical Writing",
+    'Content Creation',
+    'Developer Advocacy',
+    'Programming Education',
+    'Community Building',
+    'Personal Branding'
+  ],
+},
+  {
+    title: "AI Content Creator",
+    company: "BLACKBOX AI",
+    date: "May 2026",
+    description: [
+      "Collaborated with the BLACKBOX AI team in producing educational content focused on AI-powered development workflows and developer productivity tools.",
+      "Created technical content demonstrating practical use cases of AI-assisted programming, software development acceleration, and modern engineering practices for broader developer audiences.",
+      "Contributed to increasing awareness and adoption of AI tools within the software engineering community through engaging and accessible content formats.",
+    ],
+    tags: [
+      "Artificial Intelligence",
+      "Content Creation",
+      "Developer Productivity",
+      "Technical Communication",
+      "AI Tools",
+    ],
   },
- {
-  title: 'Java, Object-Oriented Programming & Database Laboratory Assistant',
-  company: 'Pasundan University',
-  date: 'Jan 2021 — Jan 2023',
-  description: 'Managed and mentored a team of 10 lab assistants, optimizing laboratory workflows and providing hands-on technical guidance in game development and programming.',
-  tags: ['Leadership', 'Education', 'Technical Support'],
-}
+  {
+    title: "Coordinator of Game Programming Laboratory Assistants",
+    company: "Pasundan University",
+    date: "Feb 2023 — May 2023",
+    description: [
+      "Led and coordinated a team of laboratory assistants for the Game Programming course, ensuring effective learning experiences and smooth laboratory operations.",
+      "Provided mentorship and technical guidance on game development concepts, Unity projects, and programming best practices while acting as a bridge between lecturers and students.",
+    ],
+    tags: ["Leadership", "Mentoring", "Team Management", "Unity", "Education"],
+  },
+  {
+    title: "Java, Object-Oriented Programming & Database Laboratory Assistant",
+    company: "Pasundan University",
+    date: "Jan 2021 — Jan 2023",
+    description: [
+      "Assisted undergraduate students in programming fundamentals, Java development, object-oriented programming principles, and relational database concepts.",
+      "Facilitated laboratory sessions, practical examinations, and mentoring activities while helping students strengthen their problem-solving and software engineering skills.",
+    ],
+    tags: ["Java", "SQL", "Database", "Teaching", "Mentoring", "Education"],
+  },
 ];
 
 export default function Experience() {
@@ -55,12 +137,15 @@ export default function Experience() {
       opacity: 1,
       x: 0,
       y: 0,
-      transition: { type: 'spring', stiffness: 60, damping: 10 },
+      transition: { type: "spring", stiffness: 60, damping: 10 },
     },
   };
 
   return (
-    <section id="pengalaman" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24 relative z-40">
+    <section
+      id="pengalaman"
+      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24 relative z-40"
+    >
       <h3 className="text-xl font-bold text-slate-900 mb-8 lg:hidden uppercase tracking-widest">
         Pengalaman
       </h3>
@@ -90,12 +175,16 @@ export default function Experience() {
               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-1 text-sm font-medium text-slate-500">
                 <span className="text-slate-700">{exp.company}</span>
                 <span className="hidden sm:block text-slate-300">•</span>
-                <span className="text-[#FF6B4A]/80 tracking-wide">{exp.date}</span>
+                <span className="text-[#FF6B4A]/80 tracking-wide">
+                  {exp.date}
+                </span>
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                {exp.description}
-              </p>
-              
+              <div className="mt-3 text-sm leading-relaxed text-slate-600 space-y-3">
+                {exp.description.map((desc, idx) => (
+                  <p key={idx}>{desc}</p>
+                ))}
+              </div>
+
               {/* Tags / Teknologi yang digunakan */}
               <ul className="mt-4 flex flex-wrap gap-2">
                 {exp.tags.map((tag, idx) => (

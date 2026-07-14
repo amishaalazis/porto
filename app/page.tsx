@@ -4,10 +4,13 @@ import { useState, useEffect } from 'react';
 import LeftSidebar from '@/components/LeftSidebar';
 import FloatingSocial from '@/components/FloatingSocial'; 
 import About from '@/components/About';
+import TechStack from '@/components/TechStack';
 import Projects from '@/components/Projects';
 import CertificatesGallery from '@/components/CertificatesGallery';
 import ActivitiesShowcase from '@/components/ActivitiesShowcase';
 import Experience from '@/components/Experience';
+import Education from '@/components/Education';
+import { IntroTransition } from '@/components/Intro';
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -37,10 +40,13 @@ export default function Home() {
           
           <LeftSidebar />
           
-          <main className="pt-40 lg:w-1/2 lg:pt-40 lg:pb-24 space-y-24 mt-8 lg:mt-0">
+          <main className="pt-24 lg:w-1/2 lg:pt-40 lg:pb-24 mt-8 lg:mt-0">
+          <IntroTransition onComplete={() => {}} />
             <About />
             <Experience />
             <Projects />
+            <TechStack />
+            <Education />
             <CertificatesGallery />
             <ActivitiesShowcase />
           </main>

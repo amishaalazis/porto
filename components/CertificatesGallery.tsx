@@ -6,19 +6,46 @@ import Image from 'next/image';
 
 const certifications = [
   {
-    title: 'Certified Next.js Developer',
-    issuer: 'Tech Academy',
-    image: '/assets/certifications/nextjs_cert.png', 
+    title: "TOEFL ITP",
+    issuer: "ETS",
+    issued: "Jul 2025",
+    expires: "Jul 2027",
+    image: "/assets/certifications/toefl-itp.webp",
+    category: "Language Certification",
   },
+
   {
-    title: 'ArcGIS Desktop Professional',
-    issuer: 'Geospatial Institute',
-    image: '/assets/certifications/react_cert.png', 
+    title: "English Language Proficiency Test",
+    issuer: "Institut Teknologi Bandung",
+    issued: "Feb 2024",
+    expires: "Feb 2027",
+    credentialId: "1623/IT.B05.6/DL.09/Srtfk/2025",
+    image: "/assets/certifications/elpt-itb.webp",
+    category: "Language Certification",
   },
+
   {
-    title: 'Pemegang Beasiswa Unggulan',
-    issuer: 'KEMENDIKBUD RISTEK',
-    image: '/assets/certifications/scholarship_award.png', 
+    title: "TPA OTO Bappenas",
+    issuer: "Bappenas",
+    issued: "2024",
+    image: "/assets/certifications/tpa-bappenas.webp",
+    category: "Academic Assessment",
+  },
+
+  {
+    title: "2nd Place Innovation Idea Competition",
+    issuer: "PT Lintas Cakra Cipta",
+    issued: "2025",
+    image: "/assets/certifications/innovation-award.webp",
+    category: "Award",
+  },
+
+  {
+    title: "University Outstanding Student Representative",
+    issuer: "Faculty of Engineering, Pasundan University",
+    issued: "2023",
+    image: "/assets/certifications/outstanding-student.webp",
+    category: "Academic Achievement",
   },
 ];
 
@@ -39,7 +66,7 @@ export default function CertificatesGallery() {
   };
 
   return (
-    <section id="sertifikat" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24 relative">
+    <section id="sertifikat" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24 relative">
       <h3 className="text-xl font-bold text-slate-900 mb-8 lg:hidden uppercase tracking-widest">
         Sertifikat
       </h3>
@@ -49,14 +76,14 @@ export default function CertificatesGallery() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         transition={{ staggerChildren: 0.2, delayChildren: 0.3 }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 gap-6"
       >
         {certifications.map((cert, index) => (
           <motion.div 
             key={index} 
             variants={cardVariants}
             whileHover={{ 
-              scale: 1.05, // Sedikit dikurangi agar klik terasa lebih natural
+              scale: 1.05, 
               y: -10, 
               rotateX: 5, 
               boxShadow: "0px 20px 40px rgba(255, 107, 74, 0.25)" 
@@ -77,9 +104,36 @@ export default function CertificatesGallery() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#FF6B4A]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </div>
             
-            <div className="mt-4 space-y-1 z-20 relative pointer-events-none">
-              <h4 className="font-semibold text-lg text-slate-900">{cert.title}</h4>
-              <p className="text-sm text-slate-600">{cert.issuer}</p>
+            <div className="mt-4 space-y-2 z-20 relative pointer-events-none">
+              <div className="flex items-start justify-between gap-2">
+                <h4 className="font-semibold text-lg leading-tight text-slate-900 group-hover:text-[#FF6B4A] transition-colors">
+                  {cert.title}
+                </h4>
+              </div>
+              
+              <div className="flex flex-col gap-1.5 text-sm text-slate-600">
+                <span className="font-medium text-slate-700">{cert.issuer}</span>
+                
+                {cert.issued && (
+                  <span className="text-[13px] text-slate-500">
+                    {cert.issued} {cert.expires ? `• Expires: ${cert.expires}` : ""}
+                  </span>
+                )}
+                
+                {cert.credentialId && (
+                  <span className="text-xs text-slate-500 font-mono bg-slate-100 px-2 py-0.5 rounded w-fit border border-slate-200">
+                    ID: {cert.credentialId}
+                  </span>
+                )}
+              </div>
+              
+              {cert.category && (
+                <div className="pt-1.5">
+                  <span className="inline-flex items-center rounded-full bg-[#FF6B4A]/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#FF6B4A]">
+                    {cert.category}
+                  </span>
+                </div>
+              )}
             </div>
           </motion.div>
         ))}
@@ -103,12 +157,15 @@ export default function CertificatesGallery() {
               className="relative max-w-5xl w-full max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10"
               onClick={(e) => e.stopPropagation()} // Mencegah modal tertutup jika area gambar diklik
             >
-              {/* Menggunakan tag <img> standar untuk modal agar auto-scaling proporsional berjalan lancar */}
-              <img
-                src={selectedImage}
-                alt="Preview zoom sertifikat"
-                className="w-full h-full object-contain max-h-[90vh]"
-              />
+              {/* Menggunakan komponen Image dari Next.js untuk menghilangkan warning */}
+              <div className="relative w-full h-[70vh] sm:h-[85vh]">
+                <Image
+                  src={selectedImage}
+                  alt="Preview zoom sertifikat"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute top-4 right-4 bg-black/40 hover:bg-[#FF6B4A] text-white p-2.5 rounded-full backdrop-blur-md transition-all duration-300"

@@ -20,23 +20,47 @@ export default function LeftSidebar() {
     };
     window.addEventListener("mousemove", handleMouseMove);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-50% 0px -50% 0px" },
-    );
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section[id]");
+      let currentSection = "";
 
-    const sections = document.querySelectorAll("section[id]");
-    sections.forEach((section) => observer.observe(section));
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      if (scrollPosition + windowHeight >= documentHeight - 50) {
+        if (sections.length > 0) {
+          setActiveSection(sections[sections.length - 1].id);
+        }
+        return;
+      }
+
+      let found = false;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= windowHeight * 0.3) {
+          currentSection = section.id;
+          found = true;
+          break;
+        }
+      }
+
+      if (!found && sections.length > 0) {
+        currentSection = sections[0].id;
+      }
+
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      sections.forEach((section) => observer.unobserve(section));
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [mouseX, mouseY]);
 
@@ -70,7 +94,9 @@ export default function LeftSidebar() {
   const menuItems = [
     { name: "About", id: "tentang" },
     { name: "Experience", id: "pengalaman" },
-    { name: "Project", id: "project" },
+    { name: "Featured Project", id: "project" },
+    { name: "Tech Stack", id: "tech-stack" },
+    { name: "Education", id: "pendidikan" },
     { name: "Certificate", id: "sertifikat" },
     { name: "Activity", id: "kegiatan" },
   ];
@@ -107,14 +133,18 @@ export default function LeftSidebar() {
           }}
           className="mt-3 text-lg font-bold tracking-tight text-[#FF6B4A] sm:text-xl inline-block"
         >
-          Software Engineer
+          Frontend Engineer with Full-Stack Experience
         </motion.h2>
 
         <motion.p
           variants={itemVariants}
           className="mt-4 max-w-xs leading-relaxed text-slate-600"
         >
-         Building beautiful interactive web interfaces and robust system architectures with high performance.
+          I build CRM systems, internal business tools, booking platforms, and
+          enterprise applications using&nbsp;
+          <strong>Next.js, TypeScript, Laravel,</strong> and
+          <strong> PostgreSQL. </strong> <br /> Currently developing business applications
+          while pursuing a Master&apos;s degree in Computer Science.
         </motion.p>
 
         <nav className="nav hidden lg:block mt-16">

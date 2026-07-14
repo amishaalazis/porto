@@ -1,0 +1,124 @@
+"use client";
+
+import { motion, Variants } from "framer-motion";
+
+const techStack = [
+  {
+    category: "Frontend",
+    skills: [
+      "TypeScript",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "Framer Motion",
+      "TanStack Query",
+      "Zustand",
+      "React Hook Form",
+      "Zod",
+      "SSR",
+      "Responsive Design",
+      "SEO Optimization",
+    ],
+  },
+
+  {
+    category: "Backend",
+    skills: [
+      "Laravel",
+      "PHP",
+      "REST APIs",
+      "Server Actions",
+      "Better Auth",
+      "Authentication",
+      "Authorization",
+      "RBAC",
+      "File Upload Handling",
+    ],
+  },
+
+  {
+    category: "Database & Infrastructure",
+    skills: ["PostgreSQL", "MySQL", "Supabase", "Neon", "Vercel"],
+  },
+
+  {
+    category: "GIS & Analytics",
+    skills: [
+      "ArcGIS",
+      "Geospatial Visualization",
+      "Dashboard Analytics",
+      "Data Visualization",
+    ],
+  },
+
+  {
+    category: "Tools & Collaboration",
+    skills: ["Git", "GitHub", "Apidog", "Figma", "Discord"],
+  },
+];
+
+export default function TechStack() {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 60, damping: 12 },
+    },
+  };
+
+  return (
+    <section
+      id="tech-stack"
+      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24"
+    >
+      <h3 className="text-xl font-bold text-slate-900 mb-8 lg:hidden uppercase tracking-widest">
+        Tech Stack
+      </h3>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+      >
+        {techStack.map((stack, index) => (
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            whileHover={{ scale: 1.02 }}
+            className="group relative p-5 rounded-2xl transition-all duration-300 hover:bg-[#FF6B4A]/5 hover:shadow-[0_8px_30px_rgb(255,107,74,0.12)]"
+          >
+            <h4 className="font-bold text-slate-900 group-hover:text-[#FF6B4A] transition-colors mb-4 text-base md:text-lg">
+              {stack.category}
+            </h4>
+            <ul className="flex flex-wrap gap-2">
+              {stack.skills.map((skill, idx) => (
+                <motion.li
+                  key={idx}
+                  whileHover={{ y: -2 }}
+                  className="flex items-center rounded-full bg-[#FF6B4A]/10 px-3 py-1 text-xs font-semibold leading-5 text-[#FF6B4A] shadow-sm cursor-default"
+                >
+                  {skill}
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+  );
+}
