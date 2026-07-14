@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { createPortal } from 'react-dom';
 
 interface ProjectCardProps {
   title: string;
@@ -30,6 +31,11 @@ export default function ProjectCard({
   demo
 }: ProjectCardProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <>
@@ -55,6 +61,7 @@ export default function ProjectCard({
               src={image}
               alt={`${title} preview`}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover w-full h-full transition-transform duration-500 group-hover/img:scale-110"
             />
           </motion.div>
@@ -130,7 +137,7 @@ export default function ProjectCard({
 
       {/* --- MODAL ZOOM GAMBAR (Tetap sama) --- */}
       <AnimatePresence>
-        {isOpen && (
+        {isOpen && mounted && createPortal(
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -151,6 +158,7 @@ export default function ProjectCard({
                   src={image}
                   alt={`Zoomed preview of ${title}`}
                   fill
+                  sizes="100vw"
                   className="object-contain"
                 />
               </div>
@@ -163,7 +171,8 @@ export default function ProjectCard({
                 </svg>
               </button>
             </motion.div>
-          </motion.div>
+          </motion.div>,
+          document.body
         )}
       </AnimatePresence>
     </>

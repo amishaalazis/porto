@@ -40,7 +40,6 @@ const experienceData = [
       "Better Auth",
       "Server Actions",
       "SSR",
-      "RBAC",
     ],
   },
   {

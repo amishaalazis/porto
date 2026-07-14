@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { createPortal } from 'react-dom';
 import { useLanguage } from '../context/LanguageContext';
 import SectionHeading from './SectionHeading';
 
@@ -15,7 +16,6 @@ const certifications = [
     issuer: "ETS",
     issued: "Jul 2025",
     expires: "Jul 2027",
-    image: "/assets/certifications/toefl-itp.webp",
     category: {
       en: "Language Certification",
       id: "Sertifikasi Bahasa",
@@ -30,7 +30,6 @@ const certifications = [
     issuer: "Institut Teknologi Bandung",
     issued: "Feb 2024",
     expires: "Feb 2027",
-    image: "/assets/certifications/elpt-itb.webp",
     category: {
       en: "Language Certification",
       id: "Sertifikasi Bahasa",
@@ -44,7 +43,6 @@ const certifications = [
     },
     issuer: "Bappenas",
     issued: "2024",
-    image: "/assets/certifications/tpa-bappenas.webp",
     category: {
       en: "Academic Assessment",
       id: "Penilaian Akademik",
@@ -72,7 +70,7 @@ const certifications = [
     },
     issuer: "Faculty of Engineering, Pasundan University",
     issued: "2023",
-    image: "/assets/certifications/outstanding-student.webp",
+    image: "/mhs.jpeg",
     category: {
       en: "Academic Achievement",
       id: "Prestasi Akademik",
@@ -84,6 +82,11 @@ export default function CertificatesGallery() {
   const { language, dict } = useLanguage();
   // State untuk menyimpan URL gambar yang sedang di-zoom
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Animasi Masuk: Diagonal Bounce
   const cardVariants: Variants = {
@@ -126,36 +129,40 @@ export default function CertificatesGallery() {
               boxShadow: "0px 20px 40px rgba(255, 107, 74, 0.25)" 
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 12 }}
-            onClick={() => setSelectedImage(cert.image)}
-            className="group relative overflow-hidden rounded-2xl bg-[#FF6B4A]/5 p-4 sm:p-5 flex flex-col sm:flex-row gap-4 sm:gap-6 shadow-sm transition-shadow duration-300 hover:shadow-lg origin-bottom z-10 cursor-zoom-in"
+            onClick={() => cert.image ? setSelectedImage(cert.image) : undefined}
+            className={`group relative overflow-hidden rounded-2xl bg-[#FF6B4A]/5 p-4 sm:p-5 flex flex-col sm:flex-row gap-4 sm:gap-6 shadow-sm transition-shadow duration-300 hover:shadow-lg origin-bottom z-10 ${cert.image ? 'cursor-zoom-in' : 'cursor-default'}`}
           >
-            <div className="w-full sm:w-1/3 aspect-[4/3] overflow-hidden rounded-xl bg-slate-200 relative shrink-0">
-              <Image 
-                src={cert.image} 
-                alt={cert.title[language]} 
-                width={400} 
-                height={300}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-               {/* Overlay cahaya halus saat hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FF6B4A]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-            </div>
+            {cert.image && (
+              <div className="w-full sm:w-1/3 aspect-[4/3] overflow-hidden rounded-xl bg-slate-200 relative shrink-0">
+                <Image 
+                  src={cert.image} 
+                  alt={cert.title[language]} 
+                  width={400} 
+                  height={300}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                 {/* Overlay cahaya halus saat hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FF6B4A]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              </div>
+            )}
             
-            <div className="w-full sm:w-2/3 flex flex-col justify-center space-y-2 z-20 relative pointer-events-none">
+            <div className={`${cert.image ? 'w-full sm:w-2/3' : 'w-full'} flex flex-col justify-center space-y-2 z-20 relative pointer-events-none`}>
               <div className="flex items-start justify-between gap-2">
                 <h4 className="font-semibold text-lg leading-tight text-slate-900 group-hover:text-[#FF6B4A] transition-colors">
                   {cert.title[language]}
                 </h4>
                 {/* Tanda panah diagonal kecil muncul saat hover, indikator bisa di-klik */}
-                <motion.div 
-                  initial={{ opacity: 0, x: -5, y: 5 }}
-                  whileHover={{ opacity: 1, x: 0, y: 0 }}
-                  className="text-[#FF6B4A] hidden sm:block"
-                >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </motion.div>
+                {cert.image && (
+                  <motion.div 
+                    initial={{ opacity: 0, x: -5, y: 5 }}
+                    whileHover={{ opacity: 1, x: 0, y: 0 }}
+                    className="text-[#FF6B4A] hidden sm:block"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </motion.div>
+                )}
               </div>
 
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium text-slate-500">
@@ -178,7 +185,7 @@ export default function CertificatesGallery() {
 
       {/* --- MODAL ZOOM GAMBAR --- */}
       <AnimatePresence>
-        {selectedImage && (
+        {selectedImage && mounted && createPortal(
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -200,6 +207,7 @@ export default function CertificatesGallery() {
                   src={selectedImage}
                   alt="Preview zoom sertifikat"
                   fill
+                  sizes="100vw"
                   className="object-contain"
                 />
               </div>
@@ -212,7 +220,8 @@ export default function CertificatesGallery() {
                 </svg>
               </button>
             </motion.div>
-          </motion.div>
+          </motion.div>,
+          document.body
         )}
       </AnimatePresence>
     </section>

@@ -43,7 +43,6 @@ const techStack = [
       "Better Auth",
       "Authentication",
       "Authorization",
-      "RBAC",
       "File Upload Handling",
     ],
   },

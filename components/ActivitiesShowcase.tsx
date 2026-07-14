@@ -16,7 +16,7 @@ const activities = [
       en: "2024 — Present",
       id: "2024 — Sekarang",
     },
-    image: "/assets/activities/saung-diajar.webp",
+    image: "/saung.JPG",
 
     description: {
       en: "Contributing as a volunteer educator in a social community initiative focused on improving access to education for children and local communities in Bandung.",
@@ -49,7 +49,7 @@ const activities = [
       en: "2024 — Present",
       id: "2024 — Sekarang",
     },
-    image: "/assets/activities/content-creator.webp",
+    image: "/cewe-coding.png",
 
     description: {
       en: "Creating educational and entertainment-focused programming content related to software engineering, developer culture, and modern web development.",
@@ -82,7 +82,7 @@ const activities = [
       en: "2021 — 2023",
       id: "2021 — 2023",
     },
-    image: "/assets/activities/organization.webp",
+    image: "/himpunan.jpeg",
 
     description: {
       en: "Managed budgeting, financial administration, and reporting activities for student programs and organizational events.",
@@ -113,7 +113,7 @@ const activities = [
       en: "2021",
       id: "2021",
     },
-    image: "/assets/activities/outstanding-student.webp",
+    image: "/mhs2.jpeg",
 
     description: {
       en: "Selected as the Faculty of Engineering representative for the university-level Outstanding Student selection program.",
@@ -142,7 +142,7 @@ const activities = [
       en: "2021 — 2023",
       id: "2021 — 2023",
     },
-    image: "/assets/activities/laboratory.webp",
+    image: "/LAB.png",
 
     description: {
       en: "Assisted practical sessions in Java Programming, Object-Oriented Programming, Database Systems, and Game Programming courses while coordinating assistant activities.",

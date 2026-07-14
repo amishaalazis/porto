@@ -1,11 +1,19 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, Variants, AnimatePresence } from "framer-motion";
+import { createPortal } from "react-dom";
 import { useLanguage } from "../context/LanguageContext";
 import SectionHeading from "./SectionHeading";
 
 export default function Contact() {
   const { language, dict } = useLanguage();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
   const contactInfo = [
     {
@@ -41,7 +49,7 @@ export default function Contact() {
     {
       label: dict.contact.labels.resume,
       value: dict.contact.values.resume,
-      href: "/resume.pdf",
+      action: "cv-modal",
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -114,6 +122,18 @@ export default function Contact() {
             </motion.div>
           );
 
+          if (item.action === "cv-modal") {
+            return (
+              <button
+                key={index}
+                onClick={() => setIsModalOpen(true)}
+                className="block w-fit text-left"
+              >
+                {Content}
+              </button>
+            );
+          }
+
           if (item.href) {
             return (
               <a 
@@ -131,6 +151,60 @@ export default function Contact() {
           return <div key={index} className="w-fit">{Content}</div>;
         })}
       </motion.div>
+
+      {/* --- MODAL PREVIEW CV --- */}
+      <AnimatePresence>
+        {isModalOpen && mounted && createPortal(
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsModalOpen(false)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/80 backdrop-blur-sm p-4 sm:p-8"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 15 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 15 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-w-5xl w-full h-[80vh] sm:h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-between items-center p-4 border-b border-slate-200">
+                <h3 className="font-bold text-lg text-slate-900">Curriculum Vitae</h3>
+                <div className="flex items-center gap-3">
+                  <a
+                    href="/CV-AMISHA AL AZIS.pdf"
+                    download
+                    className="flex items-center gap-2 bg-[#FF6B4A] hover:bg-[#ff5733] text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download CV
+                  </a>
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div className="flex-1 w-full bg-slate-100 p-2 sm:p-4">
+                <iframe
+                  src="/CV-AMISHA AL AZIS.pdf"
+                  className="w-full h-full rounded-xl border border-slate-300"
+                  title="CV Preview"
+                />
+              </div>
+            </motion.div>
+          </motion.div>,
+          document.body
+        )}
+      </AnimatePresence>
     </section>
   );
 }

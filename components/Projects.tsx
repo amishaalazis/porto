@@ -8,13 +8,18 @@ import { useLanguage } from "../context/LanguageContext";
 const projectData = [
   {
     title: "Internal Salesforce Platform",
-    category: { en: "Enterprise Internal Tool", id: "Alat Internal Perusahaan" },
+    category: {
+      en: "Enterprise Internal Tool",
+      id: "Alat Internal Perusahaan",
+    },
     role: { en: "Frontend Engineer", id: "Frontend Engineer" },
     client: "Internal Business Operations",
     period: { en: "2025 - Present", id: "2025 - Sekarang" },
 
-    description:
-      { en: "An internal CRM and sales management platform designed to centralize business operations, sales activities, customer management, and revenue reporting across multiple teams.", id: "Platform CRM dan manajemen penjualan internal yang dirancang untuk memusatkan operasi bisnis, aktivitas penjualan, manajemen pelanggan, dan pelaporan pendapatan di berbagai tim." },
+    description: {
+      en: "An internal CRM and sales management platform designed to centralize business operations, sales activities, customer management, and revenue reporting across multiple teams.",
+      id: "Platform CRM dan manajemen penjualan internal yang dirancang untuk memusatkan operasi bisnis, aktivitas penjualan, manajemen pelanggan, dan pelaporan pendapatan di berbagai tim.",
+    },
 
     contributions: [
       "Frontend architecture design and implementation",
@@ -41,7 +46,6 @@ const projectData = [
       "Better Auth",
       "Tailwind CSS",
       "Server Actions",
-      "RBAC",
       "SSR",
     ],
 
@@ -60,8 +64,10 @@ const projectData = [
     client: "Casanela Villa",
     period: { en: "2025 - Present", id: "2025 - Sekarang" },
 
-    description:
-      { en: "A booking and reservation platform developed to simplify villa reservations, add-on services, and administrative workflows.", id: "Platform pemesanan dan reservasi yang dikembangkan untuk menyederhanakan pemesanan vila, layanan tambahan, dan alur kerja administratif." },
+    description: {
+      en: "A booking and reservation platform developed to simplify villa reservations, add-on services, and administrative workflows.",
+      id: "Platform pemesanan dan reservasi yang dikembangkan untuk menyederhanakan pemesanan vila, layanan tambahan, dan alur kerja administratif.",
+    },
 
     contributions: [
       "Booking flow implementation",
@@ -96,13 +102,18 @@ const projectData = [
   },
   {
     title: "Saung Diajar Community Platform",
-    category: { en: "Community Education Platform", id: "Platform Edukasi Komunitas" },
+    category: {
+      en: "Community Education Platform",
+      id: "Platform Edukasi Komunitas",
+    },
     role: { en: "Full-Stack Developer", id: "Full-Stack Developer" },
     client: "Saung Diajar",
     period: { en: "2025", id: "2025" },
 
-    description:
-      { en: "A community-driven educational platform developed to support literacy initiatives, educational activities, and knowledge sharing for local communities in Bandung.", id: "Platform pendidikan berbasis komunitas yang dikembangkan untuk mendukung inisiatif literasi, kegiatan pendidikan, dan berbagi pengetahuan untuk komunitas lokal di Bandung." },
+    description: {
+      en: "A community-driven educational platform developed to support literacy initiatives, educational activities, and knowledge sharing for local communities in Bandung.",
+      id: "Platform pendidikan berbasis komunitas yang dikembangkan untuk mendukung inisiatif literasi, kegiatan pendidikan, dan berbagi pengetahuan untuk komunitas lokal di Bandung.",
+    },
 
     contributions: [
       "Frontend and backend implementation",
@@ -147,8 +158,10 @@ const projectData = [
     client: "Rajaderek",
     period: { en: "2025", id: "2025" },
 
-    description:
-      { en: "A corporate website and blog platform developed to improve digital presence and support content-driven marketing strategies.", id: "Situs web perusahaan dan platform blog yang dikembangkan untuk meningkatkan kehadiran digital dan mendukung strategi pemasaran berbasis konten." },
+    description: {
+      en: "A corporate website and blog platform developed to improve digital presence and support content-driven marketing strategies.",
+      id: "Situs web perusahaan dan platform blog yang dikembangkan untuk meningkatkan kehadiran digital dan mendukung strategi pemasaran berbasis konten.",
+    },
 
     contributions: [
       "Frontend development",
@@ -181,8 +194,10 @@ const projectData = [
     client: "Lintas Cakra Cipta",
     period: { en: "2025", id: "2025" },
 
-    description:
-      { en: "A corporate profile and content platform developed with a strong focus on maintainability, scalability, and search engine visibility.", id: "Profil perusahaan dan platform konten yang dikembangkan dengan fokus kuat pada kemudahan pemeliharaan, skalabilitas, dan visibilitas mesin pencari." },
+    description: {
+      en: "A corporate profile and content platform developed with a strong focus on maintainability, scalability, and search engine visibility.",
+      id: "Profil perusahaan dan platform konten yang dikembangkan dengan fokus kuat pada kemudahan pemeliharaan, skalabilitas, dan visibilitas mesin pencari.",
+    },
 
     contributions: [
       "Frontend development",
@@ -215,8 +230,10 @@ const projectData = [
     client: "Enterprise Organization",
     period: { en: "2024 - 2025", id: "2024 - 2025" },
 
-    description:
-      { en: "An enterprise digital archive platform developed to support historical record management, document retrieval, certification tracking, and personnel information management.", id: "Platform arsip digital perusahaan yang dikembangkan untuk mendukung manajemen rekaman sejarah, pengambilan dokumen, pelacakan sertifikasi, dan manajemen informasi personel." },
+    description: {
+      en: "An enterprise digital archive platform developed to support historical record management, document retrieval, certification tracking, and personnel information management.",
+      id: "Platform arsip digital perusahaan yang dikembangkan untuk mendukung manajemen rekaman sejarah, pengambilan dokumen, pelacakan sertifikasi, dan manajemen informasi personel.",
+    },
 
     contributions: [
       "Backend development",
@@ -255,8 +272,10 @@ const projectData = [
     client: "Enterprise Organization",
     period: { en: "2024 - 2025", id: "2024 - 2025" },
 
-    description:
-      { en: "A geospatial analytics platform developed to support operational monitoring through maps, weather information, heatmaps, and spatial visualization.", id: "Platform analitik geospasial yang dikembangkan untuk mendukung pemantauan operasional melalui peta, informasi cuaca, peta panas (heatmap), dan visualisasi spasial." },
+    description: {
+      en: "A geospatial analytics platform developed to support operational monitoring through maps, weather information, heatmaps, and spatial visualization.",
+      id: "Platform analitik geospasial yang dikembangkan untuk mendukung pemantauan operasional melalui peta, informasi cuaca, peta panas (heatmap), dan visualisasi spasial.",
+    },
 
     contributions: [
       "GIS feature development",
@@ -283,104 +302,30 @@ const projectData = [
   },
 
   {
-    title: "Spatial Planning Geographic Information System",
-    category: { en: "GIS Application", id: "Aplikasi GIS" },
-    role: { en: "Freelance Web Developer", id: "Freelance Web Developer" },
-    client: "Private Client",
-    period: { en: "2024", id: "2024" },
-
-    description:
-      { en: "An interactive GIS platform integrating ArcGIS services to visualize zoning information and spatial planning data.", id: "Platform GIS interaktif yang mengintegrasikan layanan ArcGIS untuk memvisualisasikan informasi zonasi dan data tata ruang." },
-
-    contributions: [
-      "Map integration",
-      "Frontend development",
-      "Spatial visualization implementation",
-    ],
-
-    highlights: [
-      "Integrated ArcGIS services for map rendering.",
-      "Built interactive zoning and layer visualizations.",
-      "Implemented responsive map interfaces.",
-      "Optimized performance for large spatial datasets.",
-    ],
-
-    tags: ["Next.js", "ArcGIS", "Tailwind CSS", "GIS"],
-
-    image: "/projects/spatial-planning.webp",
-
-    teamSize: { en: "2 Developers", id: "2 Developer" },
-    live: false,
-    github: null,
-    demo: null,
-  },
-
-  {
-    title: "Gunung Padang Cultural Heritage Website",
-    category: { en: "Public Information Website", id: "Situs Informasi Publik" },
-    role: { en: "Freelance Web Developer", id: "Freelance Web Developer" },
-    client: "Gunung Padang Tourism Initiative",
-    period: { en: "2023", id: "2023" },
-
-    description:
-      { en: "A public-facing website developed to promote historical information, tourism activities, and educational content related to the Gunung Padang archaeological site.", id: "Situs web publik yang dikembangkan untuk mempromosikan informasi sejarah, kegiatan pariwisata, dan konten pendidikan terkait situs arkeologi Gunung Padang." },
-
-    contributions: [
-      "Frontend development",
-      "Content presentation design",
-      "Responsive interface development",
-    ],
-
-    highlights: [
-      "Developed responsive public-facing website interfaces.",
-      "Implemented content-focused page structures for educational materials.",
-      "Optimized accessibility and mobile experiences.",
-      "Supported tourism promotion and public engagement initiatives.",
-    ],
-
-    tags: ["Laravel", "PHP", "Bootstrap", "MySQL"],
-
-    image: "/projects/gunung-padang.webp",
-
-    teamSize: { en: "1 Developer", id: "1 Developer" },
+    title: "Community & Cultural Information Platforms (Gunung Padang and Lamajang Village)",
+    role: "Freelance Web Developer",
+    company: "Remote",
+    year: "2024",
     status: "Archived",
-    live: false,
-    github: null,
-    demo: null,
-  },
-
-  {
-    title: "Lamajang Village Information Portal",
-    category: { en: "Public Service Platform", id: "Platform Layanan Publik" },
-    role: { en: "Freelance Web Developer", id: "Freelance Web Developer" },
-    client: "Lamajang Village Administration",
-    period: { en: "2023", id: "2023" },
 
     description:
-      { en: "A village information portal developed to provide public information, announcements, local news, and community activities.", id: "Portal informasi desa yang dikembangkan untuk menyediakan informasi publik, pengumuman, berita lokal, dan kegiatan masyarakat." },
-
-    contributions: [
-      "Frontend development",
-      "CMS implementation",
-      "Responsive interface development",
-    ],
+      "Developed public-facing information platforms for cultural heritage and local community initiatives, focusing on content accessibility, public communication, and digital presence.",
 
     highlights: [
-      "Developed responsive interfaces for public users.",
-      "Implemented content management functionality for announcements and news.",
-      "Designed accessible interfaces for citizens and local administrators.",
-      "Supported local digital transformation initiatives.",
+      "Developed responsive information portals for public audiences and local communities.",
+      "Implemented content management functionality for news, announcements, and educational materials.",
+      "Designed mobile-friendly interfaces to improve accessibility across devices.",
+      "Supported digital transformation initiatives for cultural heritage promotion and local communities.",
+      "Delivered projects for historical, tourism, educational, and public information purposes.",
     ],
 
-    tags: ["Laravel", "PHP", "MySQL", "CMS"],
+    tags: ["Bootstrap", "Materialize", "CMS", "Responsive Design"],
 
-    image: "/projects/lamajang.webp",
+    image: "/porto-desa.png",
 
-    teamSize: { en: "1 Developer", id: "1 Developer" },
-    status: "Archived",
-    live: false,
     github: null,
     demo: null,
+    live: false,
   },
 ];
 
@@ -391,11 +336,20 @@ export default function Projects() {
       id="project"
       className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24"
     >
-      <SectionHeading 
+      <SectionHeading
         title={dict.projects.title}
         icon={
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          <svg
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+            />
           </svg>
         }
       />
