@@ -303,13 +303,15 @@ const projectData = [
 
   {
     title: "Community & Cultural Information Platforms (Gunung Padang and Lamajang Village)",
-    role: "Freelance Web Developer",
-    company: "Remote",
-    year: "2024",
+    role: { en: "Freelance Web Developer", id: "Freelance Web Developer" },
+    client: "Remote",
+    period: { en: "2024", id: "2024" },
     status: "Archived",
 
-    description:
-      "Developed public-facing information platforms for cultural heritage and local community initiatives, focusing on content accessibility, public communication, and digital presence.",
+    description: {
+      en: "Developed public-facing information platforms for cultural heritage and local community initiatives, focusing on content accessibility, public communication, and digital presence.",
+      id: "Mengembangkan platform informasi publik untuk inisiatif warisan budaya dan komunitas lokal, dengan fokus pada aksesibilitas konten, komunikasi publik, dan kehadiran digital."
+    },
 
     highlights: [
       "Developed responsive information portals for public audiences and local communities.",

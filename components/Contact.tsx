@@ -7,11 +7,12 @@ import { useLanguage } from "../context/LanguageContext";
 import SectionHeading from "./SectionHeading";
 
 export default function Contact() {
-  const { language, dict } = useLanguage();
+  const { dict } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
   
